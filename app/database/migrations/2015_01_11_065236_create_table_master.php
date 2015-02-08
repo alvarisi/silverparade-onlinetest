@@ -14,17 +14,22 @@ class CreateTableMaster extends Migration {
 	{
 		Schema::create('ms_roles',function($table){
 			$table->increments('id');
-			$table->string('nama');
+			$table->string('name');
 		});
 		Schema::create('ms_users',function($table){
 			$table->increments('id');
 			$table->string('username');
 			$table->string('password');
 			$table->string('email');
-			$table->integer('ms_roles_id');
+			$table->char('enabled',1);
 			$table->rememberToken();
 		});
 
+		Schema::create('tr_user_roles',function($table){
+			$table->increments('id');
+			$table->integer('ms_user_id');
+			$table->integer('ms_role_id');
+		});
 
 		Schema::create('ms_competitions',function($table){
 			$table->increments('id');
@@ -40,6 +45,7 @@ class CreateTableMaster extends Migration {
 			$table->increments('id');
 			$table->string('name');
 			$table->string('file');
+			$table->char('theAnswer',1);
 			$table->integer('ms_categories_id');
 		});
 		Schema::create('ms_choices',function($table){
@@ -58,14 +64,21 @@ class CreateTableMaster extends Migration {
 
 		Schema::create('tr_usersesi',function($table){
 			$table->increments('id');
-			$table->integer('ms_users_id');
+			$table->integer('ms_user_id');
 			$table->integer('tr_sesi_id');
 			$table->timestamps();
 		});
 
-		Schema::create('tr_answers',function($table){
+		Schema::create('tr_logsesi',function($table){
 			$table->increments('id');
 			$table->integer('tr_usersesi_id');
+			$table->dateTime('mulai');
+			$table->dateTime('selesai');
+		});
+
+		Schema::create('tr_answers',function($table){
+			$table->increments('id');
+			$table->integer('tr_logsesi_id');
 			$table->integer('ms_questions_id');
 			$table->string('answer');
 		});
@@ -80,7 +93,8 @@ class CreateTableMaster extends Migration {
 	public function down()
 	{
 		Schema::dropIfExists('ms_roles');
-		Schema::dropIfExists('ms_user');
+		Schema::dropIfExists('ms_users');
+		Schema::dropIfExists('tr_user_roles');
 		Schema::dropIfExists('ms_competitions');
 		Schema::dropIfExists('ms_categories');
 		Schema::dropIfExists('ms_questions');

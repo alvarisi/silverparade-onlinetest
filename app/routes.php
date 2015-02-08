@@ -15,7 +15,9 @@ Route::get('/', function()
 {
 	return View::make('hello');
 });
-
+Route::get('/lay',function(){
+	return View::make('page.login');
+});
 Route::get('/cek',function(){
 	$numbers = range(1, 10);
     shuffle($numbers);
