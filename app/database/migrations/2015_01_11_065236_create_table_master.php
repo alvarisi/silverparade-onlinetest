@@ -18,6 +18,7 @@ class CreateTableMaster extends Migration {
 		});
 		Schema::create('ms_users',function($table){
 			$table->increments('id');
+			$table->string('name');
 			$table->string('username');
 			$table->string('password');
 			$table->string('email');
@@ -50,6 +51,7 @@ class CreateTableMaster extends Migration {
 		});
 		Schema::create('ms_choices',function($table){
 			$table->increments('id');
+			$table->char('flag','1');
 			$table->string('name');
 			$table->integer('ms_questions_id');
 		});
@@ -59,6 +61,7 @@ class CreateTableMaster extends Migration {
 			$table->string('name');
 			$table->dateTime('mulai');
 			$table->dateTime('selesai');
+			$table->integer('ms_categories_id');
 			$table->timestamps();
 		});
 
@@ -102,5 +105,6 @@ class CreateTableMaster extends Migration {
 		Schema::dropIfExists('tr_sesi');
 		Schema::dropIfExists('tr_usersesi');
 		Schema::dropIfExists('tr_answers');
+		Schema::dropIfExists('tr_logsesi');
 	}
 }

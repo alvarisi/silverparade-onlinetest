@@ -1,0 +1,105 @@
+@import url(http://fonts.googleapis.com/css?family=Lato);
+body {
+	font-family: 'Lato', sans-serif;
+}
+
+
+/* lOGIN FORM */
+.login-form{
+
+	border-radius: 5px;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-width: 0px;
+}
+.login-form .button{
+	background-color: #095f84;
+}
+.login-head{
+	margin-top:30%;
+	margin-bottom: 0px ;
+	text-align: center;
+	font-family:  'Lato', sans-serif;
+	background-color: #095f84;
+	border-width: 0px;
+}
+.login-head h5{
+	color: #fff;
+	text-transform: uppercase;
+	padding: 0px;
+	margin: 0px;
+}
+
+/* Head Nav */
+.contain-to-grid{
+	margin-bottom: 10px;
+}
+.contain-to-grid, .top-bar{
+	background-color: #095f84;
+}
+.top-bar .title-area{
+	color: #fff;
+	text-align: center;
+	left: 40%;
+}
+
+/* Side Nav */
+.side-nav{
+	background-color: #095f84;
+	border-radius: 5px;
+
+}
+.side-nav li a:not(.button), .side-nav ul li a:not(.button),.side-nav li a:focus:not(.button){
+	color: #fff;
+	text-decoration: none;
+}
+.side-nav ul.side-subnav{
+	list-style-type: none;
+	width: 100%;
+	padding: 0px;
+	margin: 0px;
+	text-indent: 10px;
+	background-color: #1679a3;
+}
+.side-nav li:hover{
+	background-color: #1679a3;
+}
+.side-nav li:hover a:not(.button){
+	font-weight: bold;
+	color: #fff;
+}
+.side-nav li:hover ul{
+	background-color: #1679a3;
+}
+.side-nav li:hover ul li  a:not(.button){
+	font-weight: normal;
+}
+
+/* Side Content */
+.side-content{
+	border-radius: 5px;
+}
+.side-content .head{
+	color: #095f84;
+}
+.side-content table{
+	width: 100%;
+}
+.side-content .alert-box{
+	padding-bottom: 0px;
+}
+
+/* data table */
+a.paginate_button.current{
+	background: none;
+}
+a.paginate_button{
+	padding: 0px;
+}
+
+/* List UL */
+.list-choices-info
+{
+	list-style-type: none;
+	text-indent: 10px;
+}

@@ -4,7 +4,7 @@ class Sesi extends Eloquent
 {
     public $timestamps = true;
     protected $table="tr_sesi";
-    protected $fillable = array('name','mulai','selesai');
+    protected $fillable = array('name','mulai','selesai','ms_categories_id');
     
     public function users()
     {

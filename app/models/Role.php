@@ -7,6 +7,6 @@ class Role extends Eloquent
     protected $fillable = array('name');
     public function users()
     {
-        return $this->belongsToMany('User', 'tr_user_roles','ms_role_id');
+        return $this->belongsToMany('User', 'tr_user_roles','ms_role_id','ms_user_id');
     }
 }

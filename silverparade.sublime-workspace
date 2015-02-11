@@ -4,6 +4,70 @@
 		"selected_items":
 		[
 			[
+				"qu",
+				"question"
+			],
+			[
+				"fla",
+				"flag"
+			],
+			[
+				"ol",
+				"ol	Tag"
+			],
+			[
+				"com",
+				"competition"
+			],
+			[
+				"opt",
+				"option	Tag"
+			],
+			[
+				"des",
+				"Deskripsi"
+			],
+			[
+				"mar",
+				"margin-right"
+			],
+			[
+				"pad",
+				"padding"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"lis",
+				"list-style-type"
+			],
+			[
+				"borderle",
+				"border-top-left-radius"
+			],
+			[
+				"bacc",
+				"background-color"
+			],
+			[
+				"Di",
+				"div"
+			],
+			[
+				"marg",
+				"margin-top"
+			],
+			[
+				"ms_ca",
+				"ms_categories_id"
+			],
+			[
+				"as",
+				"assign"
+			],
+			[
 				"ms_roles",
 				"ms_roles"
 			],
@@ -136,10 +200,6 @@
 				"font-size"
 			],
 			[
-				"pad",
-				"padding-top"
-			],
-			[
 				"s",
 				"solid"
 			],
@@ -248,10 +308,6 @@
 				"text-indent"
 			],
 			[
-				"mar",
-				"margin"
-			],
-			[
 				"te",
 				"text-align"
 			],
@@ -334,10 +390,6 @@
 			[
 				"cit",
 				"city"
-			],
-			[
-				"marg",
-				"margin-right"
 			],
 			[
 				"st",
@@ -462,112 +514,57 @@
 			[
 				"idn",
 				"ind33"
-			],
-			[
-				"print",
-				"print_r"
-			],
-			[
-				"pass",
-				"password"
-			],
-			[
-				"valid",
-				"validation_errors"
-			],
-			[
-				"th",
-				"this"
-			],
-			[
-				"saran_",
-				"saran_auditor1"
-			],
-			[
-				"ex",
-				"explode"
-			],
-			[
-				"sara",
-				"saran_auditor2"
-			],
-			[
-				"isia",
-				"isian_saran"
-			],
-			[
-				"PRin",
-				"print_r"
-			],
-			[
-				"Data",
-				"Data_User_Akar"
-			],
-			[
-				"set_",
-				"set_flashdata"
-			],
-			[
-				"vali",
-				"valid_email"
-			],
-			[
-				"act",
-				"action	Attr"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "app/models/User.php",
+			"file": "app/views/page/officer/category.blade.php",
 			"settings":
 			{
-				"buffer_size": 531,
-				"line_ending": "Unix"
+				"buffer_size": 2381,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/views/page/officer/question.blade.php",
+			"settings":
+			{
+				"buffer_size": 2398,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/views/page/officer/questionform.blade.php",
+			"settings":
+			{
+				"buffer_size": 6081,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/views/page/officer/questioninfo.blade.php",
+			"settings":
+			{
+				"buffer_size": 2000,
+				"line_ending": "Windows"
 			}
 		},
 		{
 			"file": "app/routes.php",
 			"settings":
 			{
-				"buffer_size": 673,
+				"buffer_size": 1941,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "<?php\n\nclass HomeController extends BaseController {\n\n	public function index()\n	{\n		if()\n	}\n\n}\n",
-			"file": "app/controllers/HomeController.php",
-			"file_size": 587,
-			"file_write_time": 130651728840614986,
+			"file": "app/controllers/QuestionController.php",
 			"settings":
 			{
-				"buffer_size": 95,
+				"buffer_size": 3319,
 				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/page/login.blade.php",
-			"settings":
-			{
-				"buffer_size": 98,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/views/include/home-header.blade.php",
-			"settings":
-			{
-				"buffer_size": 174,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/views/include/home-footer.blade.php",
-			"settings":
-			{
-				"buffer_size": 123,
-				"line_ending": "Windows"
 			}
 		}
 	],
@@ -604,23 +601,65 @@
 	[
 		"/C/xampp/htdocs/silverparade",
 		"/C/xampp/htdocs/silverparade/app",
+		"/C/xampp/htdocs/silverparade/app/controllers",
 		"/C/xampp/htdocs/silverparade/app/database",
 		"/C/xampp/htdocs/silverparade/app/database/migrations",
+		"/C/xampp/htdocs/silverparade/app/database/seeds",
 		"/C/xampp/htdocs/silverparade/app/models",
+		"/C/xampp/htdocs/silverparade/app/views",
+		"/C/xampp/htdocs/silverparade/app/views/include",
+		"/C/xampp/htdocs/silverparade/app/views/include/officer",
+		"/C/xampp/htdocs/silverparade/app/views/page",
+		"/C/xampp/htdocs/silverparade/app/views/page/officer",
 		"/C/xampp/htdocs/silverparade/public",
 		"/C/xampp/htdocs/silverparade/public/assets",
-		"/C/xampp/htdocs/silverparade/public/assets/js",
-		"/C/xampp/htdocs/silverparade/public/assets/js/vendor",
+		"/C/xampp/htdocs/silverparade/public/assets/css",
 		"/C/xampp/htdocs/silverparade/vendor"
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/silverparade/composer.json",
+		"/C/xampp/htdocs/silverparade/app/controllers/BaseController.php",
+		"/C/xampp/htdocs/silverparade/app/controllers/CategoryController.php",
+		"/C/xampp/htdocs/silverparade/app/views/page/officer/competition.blade.php",
+		"/C/xampp/htdocs/silverparade/app/models/Category.php",
+		"/C/xampp/htdocs/silverparade/app/controllers/CompetitionController.php",
+		"/C/xampp/htdocs/silverparade/public/assets/css/style.css",
+		"/C/xampp/htdocs/silverparade/app/views/include/officer/sidenav.blade.php",
+		"/C/xampp/htdocs/silverparade/app/views/include/officer/headnav.blade.php",
+		"/C/xampp/htdocs/silverparade/app/routes.php",
+		"/C/xampp/htdocs/silverparade/app/views/page/officer/questionform.blade.php",
+		"/C/xampp/htdocs/silverparade/app/views/page/officer/questioninfo.blade.php",
 		"/C/xampp/htdocs/silverparade/app/database/migrations/2015_01_11_065236_create_table_master.php",
+		"/C/xampp/htdocs/silverparade/app/views/page/officer/categoryform.blade.php",
+		"/C/xampp/htdocs/silverparade/app/models/Choice.php",
+		"/C/xampp/htdocs/silverparade/app/controllers/QuestionController.php",
+		"/C/xampp/htdocs/silverparade/app/models/Question.php",
+		"/C/xampp/htdocs/silverparade/app/views/include/home-header.blade.php",
+		"/C/xampp/htdocs/silverparade/vendor/nesbot/carbon/tests/SubTest.php",
+		"/C/xampp/htdocs/silverparade/app/config/session.php",
+		"/C/xampp/htdocs/silverparade/app/views/include/home-footer.blade.php",
+		"/C/Users/varis/AppData/Local/Temp/scp38935/www/application/controllers/freedom.php",
+		"/C/xampp/htdocs/silverparade/app/database/seeds/AuthSeeder.php",
+		"/C/xampp/htdocs/silverparade/app/config/auth.php",
+		"/C/xampp/htdocs/silverparade/app/models/Role.php",
+		"/C/xampp/htdocs/silverparade/app/models/User.php",
+		"/C/Users/varis/AppData/Local/Temp/scp35450/www/application/config/routes.php",
+		"/C/Users/varis/AppData/Local/Temp/scp35257/www/application/controllers/cd.php",
+		"/C/Users/varis/AppData/Local/Temp/scp36336/www/application/views/cd/index.php",
+		"/C/Users/varis/AppData/Local/Temp/scp42689/www/application/controllers/oprec.php",
+		"/C/xampp/htdocs/silverparade/app/controllers/HomeController.php",
+		"/C/xampp/htdocs/silverparade/app/views/page/login.blade.php",
+		"/C/xampp/htdocs/silverparade/app/database/seeds/DatabaseSeeder.php",
+		"/C/xampp/htdocs/silverparade/vendor/symfony/routing/Symfony/Component/Routing/Matcher/RedirectableUrlMatcher.php",
+		"/C/xampp/htdocs/silverparade/app/models/Logsesi.php",
+		"/C/xampp/htdocs/silverparade/app/models/Sesi.php",
+		"/C/xampp/htdocs/silverparade/app/models/Usersesi.php",
+		"/C/xampp/htdocs/silverparade/app/models/Answer.php",
+		"/C/xampp/htdocs/silverparade/app/models/Competition.php",
 		"/C/xampp/htdocs/silverparade/app/views/layouts/home.blade.php",
 		"/C/xampp/htdocs/silverparade/app/views/layout/home.blade.php",
 		"/C/xampp/htdocs/silverparade/app/views/include/home-nav.blade.php",
-		"/C/xampp/htdocs/silverparade/app/views/include/home-footer.blade.php",
-		"/C/xampp/htdocs/silverparade/app/views/include/home-header.blade.php",
 		"/C/xampp/htdocs/silverparade/app/config/database.php",
 		"/C/wamp/www/pdt-its/app/views/pages/validasi/ptk/master.blade.php",
 		"/C/wamp/www/pdt-its/app/views/pages/validasi/ptk/transaksional.blade.php",
@@ -706,43 +745,7 @@
 		"/C/wamp/www/pdt-its/bootstrap/start.php",
 		"/C/xampp/htdocs/zayma/app/views/home/billingaddress.blade.php",
 		"/C/xampp/htdocs/nlc/application/views/penyisihan/tes.php",
-		"/C/wamp/www/pdt-its/app/database/migrations/2014_10_01_000001_konteks_mahasiswa.php",
-		"/C/Users/varis/Documents/wizard.script",
-		"/C/Users/varis/Documents/glut.cbp",
-		"/C/Program Files/CodeBlocks/share/CodeBlocks/templates/wizard/glut/wizard.script",
-		"/Z/wampz/www/itspeg/gate.php",
-		"/C/xampp/htdocs/zayma/app/controllers/ProductController.php",
-		"/C/xampp/htdocs/zayma/app/Acme/Validators/TagValidator.php",
-		"/C/xampp/htdocs/zayma/app/views/admin/tagadd.blade.php",
-		"/C/xampp/htdocs/zayma/app/routes.php",
-		"/C/xampp/htdocs/zayma/app/views/layout/admin.blade.php",
-		"/C/xampp/htdocs/zayma/app/models/Tag.php",
-		"/C/xampp/htdocs/zayma/app/models/Product.php",
-		"/C/xampp/htdocs/zayma/app/models/Order.php",
-		"/C/xampp/htdocs/zayma/app/database/migrations/2014_09_01_121611_create_categoryarticle_table.php",
-		"/C/xampp/htdocs/zayma/app/database/migrations/2014_09_01_121133_create_shop_table.php",
-		"/C/xampp/htdocs/zayma/app/database/migrations/2014_09_01_120819_create_admin_table.php",
-		"/C/xampp/htdocs/zayma/app/database/migrations/2014_09_01_120059_create_members_table.php",
-		"/C/xampp/htdocs/zayma/app/database/migrations/2014_09_01_122019_create_articleshop_table.php",
-		"/C/xampp/htdocs/zayma/app/database/migrations/2014_09_01_122925_create_bank_table.php",
-		"/C/xampp/htdocs/zayma/app/database/migrations/2014_09_23_154949_create_product_tag_table.php",
-		"/C/xampp/htdocs/zayma/app/database/migrations/2014_09_23_153526_create_order_product_table.php",
-		"/C/xampp/htdocs/zayma/app/database/migrations/2014_09_23_142333_create_tags_table.php",
-		"/C/xampp/htdocs/zayma/app/database/migrations/2014_09_01_123927_create_product_table.php",
-		"/C/xampp/htdocs/zayma/app/database/migrations/2014_09_04_061355_create_order_table.php",
-		"/C/xampp/htdocs/zayma/app/database/migrations/2014_09_23_153105_create_product_tag_table.php",
-		"/C/xampp/htdocs/zayma/app/config/app.php",
-		"/C/xampp/htdocs/zayma/app/database/seeds/CategoryTableSeeder.php",
-		"/C/xampp/htdocs/zayma/app/database/seeds/DatabaseSeeder.php",
-		"/C/xampp/htdocs/zayma/app/views/layout/session.blade.php",
-		"/C/xampp/htdocs/zayma/vendor/laravel/framework/src/Illuminate/Session/CacheBasedSessionHandler.php",
-		"/C/xampp/htdocs/zayma/vendor/symfony/http-foundation/Symfony/Component/HttpFoundation/Session/Attribute/AttributeBag.php",
-		"/C/xampp/htdocs/zayma/vendor/laravel/framework/src/Illuminate/Session/DatabaseSessionHandler.php",
-		"/C/xampp/htdocs/zayma/app/config/session.php",
-		"/C/xampp/htdocs/zayma/vendor/predis/predis/lib/Predis/ServerException.php",
-		"/C/xampp/htdocs/zayma/public/asset/css/style.css",
-		"/C/xampp/htdocs/zayma/app/config/database.php",
-		"/C/xampp/htdocs/zayma/app/database/migrations/2014_09_04_064106_create_discount_table.php"
+		"/C/wamp/www/pdt-its/app/database/migrations/2014_10_01_000001_konteks_mahasiswa.php"
 	],
 	"find":
 	{
@@ -765,6 +768,7 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"category",
 			"getGroupRole",
 			"riwayat_jabatan_fungsional",
 			"filter",
@@ -891,8 +895,7 @@
 			"#menu-button",
 			"navigation",
 			"@screen-xs:",
-			"Extra small screen / phone",
-			"col-sm"
+			"Extra small screen / phone"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1008,24 +1011,24 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 3,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "app/models/User.php",
-					"semi_transient": true,
+					"file": "app/views/page/officer/category.blade.php",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 531,
+						"buffer_size": 2381,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								384,
-								384
+								1157,
+								1157
 							]
 						],
 						"settings":
@@ -1033,41 +1036,51 @@
 							"BracketHighlighterBusy": false,
 							"bh_regions":
 							[
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
 								"bh_regex",
 								"bh_regex_center",
 								"bh_regex_open",
 								"bh_regex_close",
 								"bh_regex_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
 								"bh_single_quote_close",
 								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
@@ -1077,19 +1090,273 @@
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
-								"bh_tag_content",
+								"bh_tag_content"
+							],
+							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/views/page/officer/question.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2398,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1113,
+								1113
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
 								"bh_default_close",
 								"bh_default_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
 								"bh_square_close",
-								"bh_square_content"
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
 							],
-							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 78.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/views/page/officer/questionform.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6081,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3121,
+								3121
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 689.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/views/page/officer/questioninfo.blade.php",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 2000,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
@@ -1100,20 +1367,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 1,
+					"buffer": 4,
 					"file": "app/routes.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 673,
+						"buffer_size": 1941,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								672,
-								672
+								1713,
+								1713
 							]
 						],
 						"settings":
@@ -1121,26 +1388,11 @@
 							"BracketHighlighterBusy": false,
 							"bh_regions":
 							[
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
 								"bh_default_close",
 								"bh_default_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
 								"bh_regex",
 								"bh_regex_center",
 								"bh_regex_open",
@@ -1156,336 +1408,11 @@
 								"bh_single_quote_open",
 								"bh_single_quote_close",
 								"bh_single_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content"
-							],
-							"syntax": "Packages/PHP/PHP.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app/controllers/HomeController.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 95,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								87,
-								87
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
 								"bh_round",
 								"bh_round_center",
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content"
-							],
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "app/views/page/login.blade.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 98,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								60,
-								60
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"auto_name": "",
-							"bh_regions":
-							[
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content"
-							],
-							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "app/views/include/home-header.blade.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 174,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								144,
-								144
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content"
-							],
-							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "app/views/include/home-footer.blade.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 123,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								90,
-								90
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
 								"bh_c_define",
 								"bh_c_define_center",
 								"bh_c_define_open",
@@ -1496,44 +1423,122 @@
 								"bh_curly_open",
 								"bh_curly_close",
 								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
 								"bh_unmatched_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content"
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
 							],
-							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage"
+							"syntax": "Packages/PHP/PHP.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/controllers/QuestionController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3319,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								370,
+								382
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 66.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -1586,20 +1591,60 @@
 		"selected_items":
 		[
 			[
-				"groupcreate",
-				"app\\views\\pages\\group\\create.blade.php"
+				"questionform",
+				"app\\views\\page\\officer\\questionform.blade.php"
+			],
+			[
+				"category",
+				"app\\models\\Category.php"
+			],
+			[
+				"competitioncontroller",
+				"app\\controllers\\CompetitionController.php"
+			],
+			[
+				"rou",
+				"app\\routes.php"
+			],
+			[
+				"question",
+				"app\\controllers\\QuestionController.php"
+			],
+			[
+				"que",
+				"app\\models\\Question.php"
+			],
+			[
+				"questioncontroller",
+				"app\\controllers\\QuestionController.php"
+			],
+			[
+				"sty",
+				"public\\assets\\css\\style.css"
+			],
+			[
+				"homecont",
+				"app\\controllers\\HomeController.php"
 			],
 			[
 				"homecontroller",
 				"app\\controllers\\HomeController.php"
 			],
 			[
-				"validasicontroller",
-				"app\\controllers\\ValidasiController.php"
+				"rout",
+				"app\\routes.php"
 			],
 			[
-				"rou",
-				"app\\routes.php"
+				"homec",
+				"app\\controllers\\HomeController.php"
+			],
+			[
+				"groupcreate",
+				"app\\views\\pages\\group\\create.blade.php"
+			],
+			[
+				"validasicontroller",
+				"app\\controllers\\ValidasiController.php"
 			],
 			[
 				"pegawaicontroller",
@@ -1742,10 +1787,6 @@
 				"app\\controllers\\BeasiswaController.php"
 			],
 			[
-				"rout",
-				"app\\routes.php"
-			],
-			[
 				"bas",
 				"app\\controllers\\BaseController.php"
 			],
@@ -1760,10 +1801,6 @@
 			[
 				"admin",
 				"app\\views\\layout\\admin.blade.php"
-			],
-			[
-				"sty",
-				"public\\asset\\css\\style.css"
 			],
 			[
 				"wys",
@@ -2064,38 +2101,6 @@
 			[
 				"listne",
 				"application\\views\\admin\\listnews.php"
-			],
-			[
-				"edi",
-				"application\\views\\admin\\editchild.php"
-			],
-			[
-				"offc",
-				"application\\controllers\\office.php"
-			],
-			[
-				"addc",
-				"application\\views\\admin\\addchild.php"
-			],
-			[
-				"listc",
-				"application\\views\\admin\\listchild.php"
-			],
-			[
-				"konta",
-				"application\\views\\homepage\\kontak-kami.php"
-			],
-			[
-				"style",
-				"assets\\css\\style.css"
-			],
-			[
-				"kontak",
-				"application\\views\\homepage\\kontak-kami.php"
-			],
-			[
-				"footer",
-				"application\\views\\homepage\\footer.php"
 			]
 		],
 		"width": 0.0
@@ -2106,11 +2111,19 @@
 		"selected_items":
 		[
 			[
-				"ed",
-				"C:\\xampp\\htdocs\\edm\\edm.sublime-project"
+				"",
+				"C:\\xampp\\htdocs\\sampanits\\sampanits.sublime-project"
 			],
 			[
-				"edm",
+				"sampan",
+				"C:\\xampp\\htdocs\\sampanits\\sampanits.sublime-project"
+			],
+			[
+				"sam",
+				"C:\\xampp\\htdocs\\sampanits\\sampanits.sublime-project"
+			],
+			[
+				"ed",
 				"C:\\xampp\\htdocs\\edm\\edm.sublime-project"
 			],
 			[
@@ -2118,12 +2131,12 @@
 				"C:\\wamp\\www\\pdt-its\\pdt-its.sublime-project"
 			],
 			[
-				"inn",
-				"C:\\xampp\\htdocs\\innvader\\innvader.sublime-project"
+				"edm",
+				"C:\\xampp\\htdocs\\edm\\edm.sublime-project"
 			],
 			[
-				"",
-				"C:\\xampp\\htdocs\\sampanits\\sampanits.sublime-project"
+				"inn",
+				"C:\\xampp\\htdocs\\innvader\\innvader.sublime-project"
 			]
 		],
 		"width": 380.0

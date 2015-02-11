@@ -8,7 +8,7 @@ use Illuminate\Auth\Reminders\RemindableInterface;
 class User extends Eloquent implements UserInterface, RemindableInterface {
 
 	protected $table="ms_users";
-	protected $fillable = array('email', 'password','username','enabled');
+	protected $fillable = array('name','email', 'password','username','enabled');
 	public $timestamps = false;
 	public function getAuthIdentifier(){
 		return $this->getKey();
@@ -38,7 +38,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
 	public function roles()
 	{
-		return $this->belongsToMany('Role','tr_user_roles','ms_user_id');
+		return $this->belongsToMany('Role','tr_user_roles','ms_user_id','ms_role_id');
 	}
 	public function isUser()
 	{
@@ -47,7 +47,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	}
 	public function hasRole($check)
 	{
-		return in_array($check, array_fetch($this->roles->toArray(),'nama'));
+		return in_array($check, array_fetch($this->roles->toArray(),'name'));
 	}
 
 	private function getIdInArray($array, $term)
@@ -63,7 +63,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	public function makeUser($t)
 	{
 		$assign = array();
-		$roles = array_fetch(Role::all()->toArray(),'nama');
+		$roles = array_fetch(Role::all()->toArray(),'name');
 		$assign[] = $this->getIdInArray($roles,$t);
 		$this->roles->attach($assign);
 	}
