@@ -32,7 +32,7 @@
 									<td>{{ $no++ }}</td>
 									<td>{{ $row->name }}</td>
 									<td>
-										<a href="{{URL::to('/competition/edit/'.$row->id)}}"><i class="fi-pencil"></i></a>
+										<a href="{{URL::to('/competition/edit/'.$row->id)}}"><i class="fi-pencil"></i></a>&nbsp;&nbsp;&nbsp;
 										<a href="{{URL::to('/competition/destroy/'.$row->id)}}"><i class="fi-trash"></i></a>
 									</td>
 								</tr>

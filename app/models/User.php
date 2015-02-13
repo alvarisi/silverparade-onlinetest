@@ -70,10 +70,14 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
 	public function sesi()
     {
-        return $this->belongsToMany('Sesi','tr_usersesi','ms_user_id');
+        return $this->belongsToMany('Sesi','tr_usersesi','ms_user_id','tr_sesi_id');
     }
     public function usersesi()
     {
         return $this->hasMany('Usersesi','ms_user_id');
+    }
+    public function logsesi()
+    {
+    	 return $this->hasManyThrough('Logsesi', 'Usersesi', 'ms_user_id', 'tr_usersesi_id');
     }
 }

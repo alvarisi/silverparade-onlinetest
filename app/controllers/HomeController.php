@@ -4,6 +4,7 @@ class HomeController extends BaseController {
 
 	public function index()
 	{
+		Auth::viaRemember();
 		if(Auth::check())
 		{
 			$user = User::find(Auth::id());

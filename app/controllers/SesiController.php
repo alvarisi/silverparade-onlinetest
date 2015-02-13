@@ -36,27 +36,47 @@ class SesiController extends BaseController {
 		return Redirect::back();
 	}
 
-	public function destroy()
+	public function destroy($id=null)
 	{
-		
-		return Redirect::back();	
+		if(!empty($id))
+		{
+			$sesi = Sesi::with(
+					'usersesi',
+					'usersesi.logsesi',
+					'usersesi.logsesi.answers',
+					)->find($id);
+			
+			foreach ($sesi->usersesi as $v) {
+				foreach ($v->logsesi->answers as $vv) {
+					$vv->delete();
+				}
+				$v->logsesi->delete();
+				$v->delete();
+			}
+			$sesi->delete();
+
+			Session::flash('success','Data berhasil dihapus');
+			return Redirect::back();
+		}
 	}
+
 	public function edit($id)
 	{
-		$competition = Competition::all();
-		$content = Category::with('competitions')->find($id);
-		return View::make('page.officer.categoryform')
+		$category = Category::all();
+		$content = Sesi::with('categories')->find($id);
+		return View::make('page.officer.sesiform')
 			->with('content',$content)
-			->with('competition',$competition)
-			->with('title','Edit Kategori')
+			->with('category',$category)
+			->with('title','Edit Tes Sesi')
 		;
 	}
 	public function update($id)
 	{
-		$content = Category::find($id);
+		$content = Sesi::find($id);
 		$content->name = Input::get('name');
-		$content->description = Input::get('description');
-		$content->ms_competitions_id = Input::get('ms_competitions_id');
+		$content->ms_categories_id = Input::get('ms_categories_id');
+		$content->mulai = Input::get('mulai');
+		$content->selesai = Input::get('selesai');
 		$content->save();
 		Session::flash('success','Data berhasil diperbarui');
 		return Redirect::back();

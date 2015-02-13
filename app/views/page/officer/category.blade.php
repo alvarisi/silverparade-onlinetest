@@ -36,7 +36,7 @@
 									<td>{{ $row->description }}</td>
 									<td>{{ $row->competitions->name }}</td>
 									<td>
-										<a href="{{URL::to('/competition/category/edit/'.$row->id)}}"><i class="fi-pencil"></i></a>
+										<a href="{{URL::to('/competition/category/edit/'.$row->id)}}"><i class="fi-pencil"></i></a>&nbsp;&nbsp;&nbsp;
 										<a href="{{URL::to('/competition/category/destroy/'.$row->id)}}"><i class="fi-trash"></i></a>
 									</td>
 								</tr>

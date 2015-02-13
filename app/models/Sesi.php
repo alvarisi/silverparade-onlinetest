@@ -8,7 +8,7 @@ class Sesi extends Eloquent
     
     public function users()
     {
-        return $this->belongsToMany('User','tr_usersesi','tr_sesi_id');
+        return $this->belongsToMany('User','tr_usersesi','tr_sesi_id','ms_user_id');
     }
     public function categories()
     {
@@ -17,5 +17,10 @@ class Sesi extends Eloquent
     public function usersesi()
     {
         return $this->hasMany('Usersesi','tr_sesi_id');
+    }
+    
+    public function logsesi()
+    {
+         return $this->hasManyThrough('Logsesi', 'Usersesi', 'tr_sesi_id', 'tr_usersesi_id');
     }
 }

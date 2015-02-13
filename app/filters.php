@@ -35,16 +35,43 @@ App::after(function($request, $response)
 
 Route::filter('auth', function()
 {
-	if (Auth::guest())
+	// if (Auth::guest())
+	// {
+	// 	if (Request::ajax())
+	// 	{
+	// 		return Response::make('Unauthorized', 401);
+	// 	}
+	// 	else
+	// 	{
+	// 		return Redirect::guest('login');
+	// 	}
+	// }
+
+	if(Auth::check())
 	{
-		if (Request::ajax())
+		if(User::find(Auth::id())->hasRole('officer'))
 		{
-			return Response::make('Unauthorized', 401);
+
+		}else{
+			return Redirect::to('/');
 		}
-		else
+	}else{
+		return Redirect::to('/');
+	}
+});
+
+Route::filter('auth.user', function()
+{
+	if(Auth::check())
+	{
+		if(User::find(Auth::id())->hasRole('user'))
 		{
-			return Redirect::guest('login');
+
+		}else{
+			return Redirect::to('/');
 		}
+	}else{
+		return Redirect::to('/');
 	}
 });
 

@@ -72,4 +72,108 @@ class UserController extends BaseController {
 		Session::flash('success','Password berhasil di reset.(sama dengan username)');
 		return Redirect::back();
 	}
+
+	public function index()
+	{
+		$user = User::find(Auth::id());
+		return View::make('page.user.index')
+			->with('title','Selamat Datang')
+			->with('content',$user);
+	}
+
+	public function account()
+	{
+		$user = User::with('roles')->find(Auth::id());
+		if($user->hasRole('user'))
+		{
+			return View::make('page.user.account')
+			->with('title','Informasi Akun Anda')
+			->with('content',$user);
+		}elseif($user->hasRole('officer'))
+		{
+			return View::make('page.officer.account')
+			->with('title','Informasi Akun Anda')
+			->with('content',$user);
+		}
+	}
+	public function selfedit()
+	{
+		$user = User::with('roles')->find(Auth::id());
+		if($user->hasRole('user'))
+		{
+			
+			if(Request::isMethod('get'))
+			{
+				return View::make('page.user.selfuserform')
+				->with('title','Edit Akun Anda')
+				->with('content',$user);
+			}else{
+				$user->name = Input::get('name');
+				$user->email = Input::get('email');
+				$user->save();
+				Session::flash('success','Data berhasil diperbarui');
+				return Redirect::back();
+			}
+		}
+		elseif($user->hasRole('officer'))
+		{
+			if(Request::isMethod('get'))
+			{
+				return View::make('page.officer.selfuserform')
+				->with('title','Edit Akun Anda')
+				->with('content',$user);	
+			}else{
+				$user->name = Input::get('name');
+				$user->email = Input::get('email');
+				$user->save();
+				Session::flash('success','Data berhasil diperbarui');
+				return Redirect::back();
+			}
+		}	
+	}
+	public function change()
+	{
+		$user = User::with('roles')->find(Auth::id());
+		if($user->hasRole('user'))
+		{
+			
+			if(Request::isMethod('get'))
+			{
+				return View::make('page.user.change')
+				->with('title','Edit Akun Anda')
+				->with('content',$user);
+			}else{
+				$password = Input::get('password');
+				if(!Hash::check($password,$user->password))
+				{
+					Session::flash('failed','Password lama anda salah!');
+					return Redirect::back();
+				}
+				$user->password = Hash::make(Input::get('npassword'));
+				$user->save();
+				Session::flash('success','Data berhasil diperbarui');
+				return Redirect::back();
+			}
+		}
+		elseif($user->hasRole('officer'))
+		{
+			if(Request::isMethod('get'))
+			{
+				return View::make('page.officer.change')
+				->with('title','Ubah Password')
+				->with('content',$user);	
+			}else{
+				$password = Input::get('password');
+				if(!Hash::check($password,$user->password))
+				{
+					Session::flash('failed','Password lama anda salah!');
+					return Redirect::back();
+				}
+				$user->password = Hash::make(Input::get('npassword'));
+				$user->save();
+				Session::flash('success','Data berhasil diperbarui');
+				return Redirect::back();
+			}
+		}	
+	}
 }

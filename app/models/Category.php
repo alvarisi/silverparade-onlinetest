@@ -11,6 +11,10 @@ class Category extends Eloquent
     }
     public function questions()
     {
+        return $this->hasMany('Question','ms_categories_id','id')->orderBy(DB::raw('RAND()'));
+    }
+    public function pquestions()
+    {
         return $this->hasMany('Question','ms_categories_id','id');
     }
     public function sesi()

@@ -48,14 +48,25 @@
 							<div class="row">
 								<div class="large-12 columns">
 									<label> Mulai Sesi Tes
-										{{ Form::text('mulai','',array('placeholder' => 'yyyy-mm-dd H:M','id' => 'mulai'))}}
+										<?php
+										$mulai = '';
+										$selesai = '';
+										if(!empty($content))
+										{
+											$date = strtotime($content->mulai);
+											$mulai = date('Y-m-d H:i',$date);
+											$date = strtotime($content->selesai);
+											$selesai = date('Y-m-d H:i',$date);
+										}
+										 ?>
+										{{ Form::text('mulai',$mulai,array('placeholder' => 'yyyy-mm-dd H:M','id' => 'mulai'))}}
 									</label>
 								</div>
 							</div>
 							<div class="row">
 								<div class="large-12 columns">
 									<label> Selesai Sesi Tes
-										{{ Form::text('selesai','',array('placeholder' => 'yyyy-mm-dd H:M',
+										{{ Form::text('selesai',$selesai,array('placeholder' => 'yyyy-mm-dd H:M',
 										'id' => 'selesai'))}}
 									</label>
 								</div>

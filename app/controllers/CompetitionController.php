@@ -44,4 +44,40 @@ class CompetitionController extends BaseController {
 		Session::flash('success','Data berhasil diperbarui');
 		return Redirect::back();
 	}
+	public function destroy($id=null)
+	{
+		if(!empty($id))
+		{
+			$competition = Competition::with('categories',
+					'categories.questions',
+					'categories.questions.choices',
+					'categories.questions.answers',
+					'categories.sesi',
+					'categories.sesi.usersesi',
+					'categories.sesi.usersesi.logsesi',
+					)->find($id);
+			foreach ($competition->categories as $row) {
+				foreach ($row->questions as $val) {
+					foreach ($val->choices as $v) {
+						$v->delete();
+					}
+					foreach ($val->answers as $v) {
+						$v->delete();
+					}
+					$val->delete();
+				}
+				foreach ($row->sesi as $val) {
+					foreach ($val->usersesi as $v) {
+						$v->logsesi->delete();
+						$v->delete();
+					}
+					$val->delete();
+				}
+				$row->delete();
+			}
+
+			Session::flash('success','Data berhasil dihapus');
+			return Redirect::back();
+		}
+	}
 }

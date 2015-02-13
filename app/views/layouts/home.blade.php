@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>{{ $title }}</title>
+	<title>{{ $title }} :: Silver Parade 5</title>
 	@include('include.home-header')
 </head>
 <body>

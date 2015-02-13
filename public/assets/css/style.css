@@ -1,12 +1,15 @@
 @import url(http://fonts.googleapis.com/css?family=Lato);
+@import url(http://fonts.googleapis.com/css?family=Montserrat);
 body {
 	font-family: 'Lato', sans-serif;
 }
-
+a{
+	font-family: 'Montserrat','Lato', sans-serif;
+}
 
 /* lOGIN FORM */
 .login-form{
-
+	box-shadow: 6px 6px 0 0 #BDBDBD;
 	border-radius: 5px;
 	border-top-left-radius: 0px;
 	border-top-right-radius: 0px;
@@ -16,6 +19,7 @@ body {
 	background-color: #095f84;
 }
 .login-head{
+	box-shadow: 6px 6px 0 0 #BDBDBD;
 	margin-top:30%;
 	margin-bottom: 0px ;
 	text-align: center;
@@ -47,7 +51,6 @@ body {
 .side-nav{
 	background-color: #095f84;
 	border-radius: 5px;
-
 }
 .side-nav li a:not(.button), .side-nav ul li a:not(.button),.side-nav li a:focus:not(.button){
 	color: #fff;
@@ -63,9 +66,10 @@ body {
 }
 .side-nav li:hover{
 	background-color: #1679a3;
+	border-left: 3px solid #fff;
 }
 .side-nav li:hover a:not(.button){
-	font-weight: bold;
+	font-weight: 600;
 	color: #fff;
 }
 .side-nav li:hover ul{
@@ -73,6 +77,13 @@ body {
 }
 .side-nav li:hover ul li  a:not(.button){
 	font-weight: normal;
+}
+.side-nav li.current{
+	background-color: #0B3C52;
+}
+.side-nav li.current:hover
+{
+	border-left: 0px;
 }
 
 /* Side Content */
@@ -88,7 +99,10 @@ body {
 .side-content .alert-box{
 	padding-bottom: 0px;
 }
-
+h5.head{
+	font-family: 'Montserrat','Lato',sans-serif;
+	text-transform: uppercase;
+}
 /* data table */
 a.paginate_button.current{
 	background: none;

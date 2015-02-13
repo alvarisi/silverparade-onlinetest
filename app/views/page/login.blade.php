@@ -5,8 +5,8 @@
 		<div class="row">
 			<div class="small-12 large-4 large-offset-4 end columns">
 				<div class="panel login-head">
-					<div class="login-head">
-						<h5>Masuk ke sistem</h5>
+					<div class="">
+						<a href="{{ URL::to('/') }}"><img src="{{ asset('assets/img/logo.png') }}" width="170" ></a>
 					</div>
 				</div>
 				<div class="panel login-form">
@@ -50,4 +50,28 @@
 		background-color: #d9d9d9;
 	}
 	</style>
+	{{ HTML::script('assets/js/validation/jquery.validate.min.js') }}
+@endsection
+
+
+@section('custom-footer')
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$('form').validate({
+			rules:{
+				username: "required",
+				password: "required",
+			},
+			messages:{
+				username: {
+					required: "Username harus diisi."
+				},
+				password: {
+					required: "Password harus diisi."
+				},
+			}
+		});
+		$(document).foundation();
+	});
+	</script>
 @endsection

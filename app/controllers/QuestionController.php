@@ -73,11 +73,6 @@ class QuestionController extends BaseController {
 		;
 	}
 
-	public function destroy()
-	{
-
-		return Redirect::back();	
-	}
 	public function edit($id)
 	{
 		$category = Category::all();
@@ -130,5 +125,27 @@ class QuestionController extends BaseController {
 		}
 		Session::flash('success','Data berhasil diperbarui');
 		return Redirect::back();
+	}
+
+	public function destroy($id=null)
+	{
+		if(!empty($id))
+		{
+			$question = Question::with(
+					'choices',
+					'answers'
+					)->find($id);
+			
+			foreach ($question->choices as $v) {
+				$v->delete();
+			}
+			foreach ($question->answers as $v) {
+				$v->delete();
+			}
+			$question->delete();
+
+			Session::flash('success','Data berhasil dihapus');
+			return Redirect::back();
+		}
 	}
 }

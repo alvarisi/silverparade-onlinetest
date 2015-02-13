@@ -58,4 +58,40 @@ class CategoryController extends BaseController {
 		Session::flash('success','Data berhasil diperbarui');
 		return Redirect::back();
 	}
+
+	public function destroy($id=null)
+	{
+		if(!empty($id))
+		{
+			$category = Category::with(
+					'questions',
+					'questions.choices',
+					'questions.answers',
+					'sesi',
+					'sesi.usersesi',
+					'sesi.usersesi.logsesi',
+					)->find($id);
+			
+			foreach ($category->questions as $val) {
+				foreach ($val->choices as $v) {
+					$v->delete();
+				}
+				foreach ($val->answers as $v) {
+					$v->delete();
+				}
+				$val->delete();
+			}
+			foreach ($category->sesi as $val) {
+				foreach ($val->usersesi as $v) {
+					$v->logsesi->delete();
+					$v->delete();
+				}
+				$val->delete();
+			}
+			$category->delete();
+
+			Session::flash('success','Data berhasil dihapus');
+			return Redirect::back();
+		}
+	}
 }

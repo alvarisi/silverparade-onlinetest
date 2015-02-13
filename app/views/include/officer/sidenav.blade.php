@@ -24,15 +24,21 @@
 							<li><a href="{{ URL::to('/user/excel') }}">Upload User</a></li>
 						</ul>
 					</li>
-					<li><a href="{{ URL::to('/account') }}">Akun</a></li>
+					<li><a href="{{ URL::to('/officer/account') }}">Akun</a></li>
 					<li><a href="{{ URL::to('/logout') }}">Logout</a></li>
 				</ul>
 				<script type="text/javascript">
 				$("ul.side-subnav").toggle();
 				$('.side-button-headnav').click(function(){
 					var parent = $(this).closest('.side-headnav');
-					var th= parent.find("ul.side-subnav")
+					$("li.side-headnav").not(parent).removeClass('current');
+					parent.addClass('current');
+					var th= parent.find("ul.side-subnav");
 					$("ul.side-subnav").not(th).hide();
 					th.toggle();
+					if(!th.is(':visible'))
+					{
+						parent.removeClass('current');
+					}
 				});
 				</script>

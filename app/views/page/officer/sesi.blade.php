@@ -51,8 +51,9 @@
 										{{ $dt }}
 									</td>
 									<td>
-										<a href="{{URL::to('/competition/edit/'.$row->id)}}"><i class="fi-pencil"></i></a>
-										<a href="{{URL::to('/competition/destroy/'.$row->id)}}"><i class="fi-trash"></i></a>
+										<a href="{{URL::to('/session/edit/'.$row->id)}}"><i class="fi-pencil"></i></a>
+										&nbsp;&nbsp;&nbsp;
+										<a href="{{URL::to('/session/destroy/'.$row->id)}}"><i class="fi-trash"></i></a>
 									</td>
 								</tr>
 								@endforeach
