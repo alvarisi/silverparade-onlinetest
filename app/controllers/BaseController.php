@@ -24,4 +24,8 @@ class BaseController extends Controller {
 	    }
 	    return $randomString;
 	}
+	public function template($type = null)
+	{
+		
+	}
 }

@@ -11,11 +11,11 @@
 				<div class="row">
 					<div class="panel side-content">
 						<h5 class="head text-center">{{ $title }}</h5>
-						@if(Session::has('success'))
+						@if(Session::has('success') || Session::has('failed'))
 						<div class="row">
-							<div data-alert class="alert-box success">
+							<div data-alert class="alert-box columns {{ Session::has('success')?'success':'alert' }}">
 								<p>
-									{{ Session::get('success') }}
+									{{ Session::has('success')?Session::get('success'):Session::get('failed') }}
 								</p>
 								<a href="#" class="close">&times;</a>
 							</div>

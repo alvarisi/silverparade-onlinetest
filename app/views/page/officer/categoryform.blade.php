@@ -7,7 +7,7 @@
 			<div class="small-12 large-3 columns">
 				@include('include.officer.sidenav')
 			</div>
-			<div class="small-12 large-8 end columns">
+			<div class="small-12 large-9 end columns">
 				<div class="row">
 					<div class="panel side-content">
 						<h5 class="head text-center">{{ $title }}</h5>
@@ -48,7 +48,7 @@
 							<div class="row">
 								<div class="large-12 columns">
 									<label> Deskripsi Kategori
-										{{ Form::textarea('description',empty($content)?'':$content->description,array('placeholder' => 'Ketikkan deskripsi kategori','rows' => '3'))}}
+										{{ Form::textarea('description',empty($content)?'':$content->description,array('placeholder' => 'Ketikkan deskripsi kategori'))}}
 									</label>
 								</div>
 							</div>
@@ -72,13 +72,20 @@
 		background-color: #d9d9d9;
 	}
 	</style>
+	{{ HTML::style('assets/js/editor/jquery-te-1.4.0.css') }}
 	{{ HTML::script('assets/js/validation/jquery.validate.min.js') }}
-
+	{{ HTML::script('assets/js/editor/jquery-te-1.4.0.min.js') }}
+	<style>
+	.jqte_tool.jqte_tool_1 .jqte_tool_label{
+		height: 25px;
+	}
+	</style>
 @endsection
 
 @section('custom-footer')
 	<script type="text/javascript">
 	$(document).ready(function(){
+		$("textarea").jqte();
 		$('#myForm').validate({
 			rules:{
 				name: "required",

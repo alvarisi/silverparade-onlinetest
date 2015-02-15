@@ -47,8 +47,12 @@ Route::group(array('before' => 'auth'), function()
 	Route::get('/user/edit/{id?}','UserController@edit');
 	Route::post('/user/edit/{id?}','UserController@update');
 	Route::get('/user/reset/{id?}','UserController@reset');
+	Route::get('/user/excel','UserController@excel');
+	Route::post('/user/excel','UserController@excel');
+	Route::get('user/destroy/{id?}','UserController@destroy');
 	
-
+	Route::get('/template/{type?}','TemplateController@create');
+	Route::post('/template/{type?}','UserController@excel');
 
 	Route::get('/session','SesiController@index');
 	Route::get('/session/add','SesiController@create');
@@ -86,6 +90,9 @@ Route::group(array('before' => 'auth.user'), function()
 	Route::get('/account/changepassword','UserController@change');
 	Route::post('/account/changepassword','UserController@change');
 });
+
+Route::get('api/getDescription','CategoryController@getDescription');
+Route::get('api/getSesi','SesiController@getSesi');
 Route::get('/cek',function(){
 	$numbers = range(1, 10);
     shuffle($numbers);

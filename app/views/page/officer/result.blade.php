@@ -92,26 +92,36 @@
 								 ?>
 								@foreach($content['sesi']->usersesi as $row)
 								<tr>
+
 									<td>{{ $no++ }}</td>
 									<td>{{ $row->user->name }}</td>
-									<td>{{ $row->logsesi->mulai }}</td>
-									<td>{{ $row->logsesi->selesai }}</td>
+									<td>{{ $row->logsesi()->count() > 0?$row->logsesi->mulai:'' }}</td>
+									<td>{{ $row->logsesi()->count() > 0?$row->logsesi->selesai:'' }}</td>
 									<td>
 										<?php 
+										if($row->logsesi()->count() > 0){
+
 										$mulai = new DateTime($row->logsesi->mulai);
 										$selesai = new DateTime($row->logsesi->selesai);
-										$interval = $mulai->diff($selesai)
-
+										$interval = $mulai->diff($selesai);
+										echo $interval->format('%H:%I:%s');
+										}else{
+											echo "";
+										}
 										?>
-										{{ $interval->format('%H:%I:%s'); }}
+										
 									</td>
 									<td>
 										<?php 
 										$points = 0;
-										foreach ($row->logsesi->answers as $v) {
-											if($v->answer == $v->question->theAnswer)
-											{
-												$points++;
+										if($row->logsesi()->count() > 0){
+											foreach ($row->logsesi->answers as $v) {
+												if($v->answer == $v->question->theAnswer)
+												{
+													$points=$points+4;
+												}else{
+													$points--;
+												}
 											}
 										}
 										?>
@@ -138,6 +148,8 @@
 	{{ HTML::style('assets/icons/foundation-icons.css') }}
 	{{ HTML::style('assets/js/datatables/css/jquery.dataTables.min.css') }}
 	{{ HTML::script('assets/js/datatables/js/jquery.dataTables.min.js') }}
+	{{ HTML::script('assets/js/validation/jquery.validate.min.js') }}
+
 @endsection
 
 @section('custom-footer')
@@ -186,6 +198,21 @@
       			}
       		);
     	});
+    	
+    	$('#myForm').validate({
+			rules:{
+				ms_categories_id: "required",
+				tr_sesi_id: "required",
+			},
+			messages:{
+				ms_categories_id: {
+					required: "Pilih kompetisi tidak boleh kosong."
+				},
+				tr_sesi_id: {
+					required: "Pilih sesi tidak boleh kosong."
+				}
+			}
+		});
 	});
 </script>
 @endsection

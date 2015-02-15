@@ -6,6 +6,7 @@
 	"type": "project",
 	"require": {
 		"laravel/framework": "4.2.*",
+		"maatwebsite/excel": "1.*",
 		"intervention/image": "~2.0"
 	},
 	"autoload": {
@@ -16,7 +17,10 @@
 			"app/database/migrations",
 			"app/database/seeds",
 			"app/tests/TestCase.php"
-		]
+		],
+		"psr-0": {
+			"Helpers" : "app/"
+		}
 	},
 	"scripts": {
 		"post-install-cmd": [

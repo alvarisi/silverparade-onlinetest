@@ -29,43 +29,44 @@
 								</tr>
 							</thead>
 							<tbody>
-								<?php $no=1; ?>
+								<?php $no=1;
+								date_default_timezone_set('Asia/Jakarta'); ?>
 								@foreach($content->usersesi as $row)
 								<tr>
 									<td>{{ $no++ }}</td>
 									<td>{{ $row->sesi->name }}</td>
-									<td>{{ $row->sesi->categories->name }}</td>
+									<td><a href="#" data-reveal-id="myModal" onclick="getSesi({{ $row->sesi->id }})" class="tiny button">Selengkapnya</a></td>
 									<td>{{ $row->sesi->mulai }}</td>									
 									<td>{{ $row->sesi->selesai }}</td>
 									<td>
 										@if($row->logsesi()->count() == 0)
-										@if(new DateTime($row->sesi->selesai) > new DateTime("now"))
-										
-										<?php
-											$date = strtotime($row->sesi->mulai);
-											$mulai = date('F j, Y  H:i:s',$date);
-											// $mulai = date('Y,n,j,H,i,s',$date);
-											$date = strtotime($row->sesi->selesai);
-											$selesai = date('F j, Y  H:i:s',$date);
-										 ?>
-										<a href="{{ URL::to('user/test/info/'.$row->id) }}" class="button tiny radius success execute" data-mulai='{{ $mulai }}' data-selesai='{{ $selesai }}'>Execute</a>
+											@if(new DateTime($row->sesi->selesai) > new DateTime("now"))
+											
+											<?php
+												$date = strtotime($row->sesi->mulai);
+												$mulai = date('F j, Y  H:i:s',$date);
+												// $mulai = date('Y,n,j,H,i,s',$date);
+												$date = strtotime($row->sesi->selesai);
+												$selesai = date('F j, Y  H:i:s',$date);
+											 ?>
+											<a href="{{ URL::to('user/test/info/'.$row->id) }}" class="button tiny radius success execute" data-mulai='{{ $mulai }}' data-selesai='{{ $selesai }}'>Execute</a>
+											@else
+											<em>Expired</em>
+											@endif
 										@else
-										<em>Expired</em>
-										@endif
-										@else
-										@if($row->logsesi->selesai == '0000-00-00 00:00:00')
-										<?php
-											$date = strtotime($row->sesi->mulai);
-											$mulai = date('F j, Y  H:i:s',$date);
-											// $mulai = date('Y,n,j,H,i,s',$date);
-											$date = strtotime($row->sesi->selesai);
-											$selesai = date('F j, Y  H:i:s',$date);
-										 ?>
-										<a href="{{ URL::to('user/test/info/'.$row->id) }}" class="button tiny radius alert execute" data-mulai='{{ $mulai }}' data-selesai='{{ $selesai }}'>Lanjutkan</a>
+											@if($row->logsesi->selesai == '0000-00-00 00:00:00')
+											<?php
+												$date = strtotime($row->sesi->mulai);
+												$mulai = date('F j, Y  H:i:s',$date);
+												// $mulai = date('Y,n,j,H,i,s',$date);
+												$date = strtotime($row->sesi->selesai);
+												$selesai = date('F j, Y  H:i:s',$date);
+											 ?>
+											<a href="{{ URL::to('user/test/info/'.$row->id) }}" class="button tiny radius alert execute" data-mulai='{{ $mulai }}' data-selesai='{{ $selesai }}'>Lanjutkan</a>
 
-										@else
-										<em>Selesai</em>
-										@endif
+											@else
+											<em>Selesai</em>
+											@endif
 										@endif
 									</td>
 								</tr>
@@ -76,6 +77,16 @@
 				</div>
 			</div>
 		</div>
+	</div>
+	<div id="myModal" class="reveal-modal" data-reveal>
+	  <h4 id="desc-name">-</h4>
+	  <p>
+	  	Topik : <div id="desc-category">
+	  		
+	  	</div>
+	  </p>
+	  <p>Deksripsi: <div id="desc-description">-</div></p>
+	  <a class="close-reveal-modal">&#215;</a>
 	</div>
 @endsection
 
@@ -92,6 +103,18 @@
 
 @section('custom-footer')
 <script type="text/javascript">
+
+	function getSesi(val){
+    	$.get("{{ url('api/getSesi') }}", { x: val },
+      		function(data) {
+      			$('#desc-name').html(data.name);
+      			$('#desc-category').html(data.categories.name);
+      			$('#desc-description').html(data.categories.description);
+      			console.log(data);
+      		}
+      	);
+    }
+
 	$('.execute').each(function(){
 			// var x = this.getAttribute('data-mulai');
 			// console.log(x);
@@ -146,6 +169,9 @@
 				}
 
 			});
+
 		}
+    	$(document).foundation();
+
 </script>
 @endsection

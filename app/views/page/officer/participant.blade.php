@@ -75,7 +75,7 @@
 
 							<div class="large-12 columns">
 								
-								{{ Form::open(array('url'=> URL::to('test/participant/add'),'method' => 'post' ))}}
+								{{ Form::open(array('url'=> URL::to('test/participant/add'),'method' => 'post','id' => 'FormAdd' ))}}
 								<fieldset>
 								<div class="large-7 columns">
 									<label>
@@ -140,6 +140,7 @@
 	{{ HTML::style('assets/icons/foundation-icons.css') }}
 	{{ HTML::style('assets/js/datatables/css/jquery.dataTables.min.css') }}
 	{{ HTML::script('assets/js/datatables/js/jquery.dataTables.min.js') }}
+	{{ HTML::script('assets/js/validation/jquery.validate.min.js') }}
 @endsection
 
 @section('custom-footer')
@@ -188,6 +189,31 @@
       			}
       		);
     	});
+    	$('#myForm').validate({
+			rules:{
+				ms_categories_id: "required",
+				tr_sesi_id: "required",
+			},
+			messages:{
+				ms_categories_id: {
+					required: "Pilih kompetisi tidak boleh kosong."
+				},
+				tr_sesi_id: {
+					required: "Pilih sesi tidak boleh kosong."
+				}
+			}
+		});
+		$('#FormAdd').validate({
+			rules:{
+				ms_users_id: "required",
+			},
+			messages:{
+				ms_users_id: {
+					required: "Pilih pengguna tidak boleh kosong."
+				}
+			}
+		});
+		
 	});
 </script>
 @endsection

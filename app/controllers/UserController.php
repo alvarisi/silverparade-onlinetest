@@ -1,4 +1,6 @@
 <?php
+use Helpers\ExcelHelper;
+use Helpers\validators\Validator;
 
 class UserController extends BaseController {
 
@@ -26,16 +28,22 @@ class UserController extends BaseController {
 		$en = Input::get('enabled');
 		if(empty($en))
 			$en='';
-		$user = User::create([
-			'name' => Input::get('name'),
-			'username' => Input::get('username'),
-			'password' => Hash::make(Input::get('password')),
-			'email' => Input::get('email'),
-			'enabled' => $en
-		]);
+		$id = User::where('username',Input::get('username'))->first();
+		if(empty($id)){
+			$user = User::create([
+				'name' => Input::get('name'),
+				'username' => Input::get('username'),
+				'password' => Hash::make(Input::get('password')),
+				'email' => Input::get('email'),
+				'enabled' => $en
+			]);
 
-		$user->roles()->attach($role->id);
-		Session::flash('success','Data berhasil ditambahkan');
+			$user->roles()->attach($role->id);
+			Session::flash('success','Data berhasil ditambahkan');	
+		}else{
+			Session::flash('failed','Duplikasi username.');	
+		}
+		
 		return Redirect::back();
 	}
 
@@ -176,4 +184,64 @@ class UserController extends BaseController {
 			}
 		}	
 	}
+	public function excel()
+	{
+		if(Request::isMethod('get'))
+		{
+			return View::make('page.officer.userupload')
+				->with('title','Upload user');
+		}else{
+			$impors= new ExcelHelper(Input::file('file'));
+        
+	        $data=$impors->get();
+	        foreach ($data as $row) {
+	        	$id = User::where('username',$row->username)->first();
+	        	if(empty($id))
+	        	{
+	        		$a = User::create([
+		        		'nama' => $row->nama,
+		        		'username' => $row->username,
+		        		'password' => Hash::make($row->password),
+		        		'email' => $row->email,
+		        		'enabled' => '1',
+		        	]);
+		        	$a->roles()->attach(3);
+	        	}else{
+	        		Session::flash('failed',"Duplikasi username '".$row->username."'");
+					return Redirect::back();
+	        	}
+	        	
+	        }
+	        Session::flash('success','Data berhasil ditambahkan');
+			return Redirect::back();
+		}
+	}
+	public function destroy($id=null)
+	{
+		if(!empty($id))
+		{
+			$user = User::with(
+					'usersesi',
+					'usersesi.logsesi',
+					'usersesi.logsesi.answers'
+					)->find($id);
+			
+			foreach ($user->usersesi as $v) {
+				if($v->logsesi()->count())
+				{
+					foreach ($v->logsesi->answers as $vv) {
+						$vv->delete();
+					}
+					$v->logsesi->delete();
+				}
+				
+				$v->delete();
+			}
+			$user->delete();
+
+			Session::flash('success','Data berhasil dihapus');
+			return Redirect::back();
+		}
+	}
+
 }

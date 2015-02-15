@@ -165,7 +165,7 @@ class TestController extends BaseController {
 					if(!empty($answer))
 					{
 						Answer::create([
-							'tr_logsesi_id' => $id,
+							'tr_logsesi_id' => $lg->logsesi->id,
 							'ms_questions_id' => $row->id,
 							'answer' => $answer
 						]);
@@ -184,14 +184,16 @@ class TestController extends BaseController {
 					'logsesi',
 					'logsesi.answers'
 					)->find($id);
-			
-			foreach ($usersesi->logsesi->answers as $vv) {
-				$vv->delete();
+			if($usersesi->logsesi()->count() > 0)
+			{
+				foreach ($usersesi->logsesi->answers as $vv) {
+					$vv->delete();
+				}
+				$usersesi->logsesi->delete();	
 			}
-			$usersesi->logsesi->delete();
 			$usersesi->delete();
 			Session::flash('success','Data berhasil dihapus');
-			return Redirect::back();
+			return Redirect::to('test/participant');
 		}
 	}
 }

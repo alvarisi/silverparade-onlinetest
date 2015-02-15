@@ -33,7 +33,7 @@
 								<tr>
 									<td>{{ $no++ }}</td>
 									<td>{{ $row->name }}</td>
-									<td>{{ $row->description }}</td>
+									<td><a href="#" data-reveal-id="myModal" onclick="getDescription({{ $row->id }})" class="tiny button">Selengkapnya</a></td>
 									<td>{{ $row->competitions->name }}</td>
 									<td>
 										<a href="{{URL::to('/competition/category/edit/'.$row->id)}}"><i class="fi-pencil"></i></a>&nbsp;&nbsp;&nbsp;
@@ -47,6 +47,12 @@
 				</div>
 			</div>
 		</div>
+	</div>
+
+	<div id="myModal" class="reveal-modal" data-reveal>
+	  <h4 id="desc-name">Awesome. I have it.</h4>
+	  <p id="desc-description">I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
+	  <a class="close-reveal-modal">&#215;</a>
 	</div>
 @endsection
 
@@ -63,6 +69,16 @@
 
 @section('custom-footer')
 <script type="text/javascript">
+		function getDescription(val){
+    		$.get("{{ url('api/getDescription') }}", { x: val },
+      			function(data) {
+      				$('#desc-name').html(data.name);
+      				$('#desc-description').html(data.description);
+      				
+      			}
+      		);
+    	}
+
 	$(document).ready(function() {
     	$('table').DataTable({
         "language": {
@@ -81,6 +97,8 @@
           "sSearch" : "Pencarian :",
 	    }
     });
+    	$(document).foundation();
+    	
 	});
 </script>
 @endsection

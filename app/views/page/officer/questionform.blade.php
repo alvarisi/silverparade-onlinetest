@@ -76,8 +76,9 @@
 										<label for="1">Jawaban 1</label>
 									<input type="radio" name="answer" value="2" id="2" 
 									@if(!empty($content))
-									 {{ $content->theAnswer=='2'?'checked':'' }}>
+									 {{ $content->theAnswer=='2'?'checked':'' }}
 									@endif
+									>
 										<label for="2">Jawaban 2</label>
 									<input type="radio" name="answer" value="3" id="3"
 									@if(!empty($content))

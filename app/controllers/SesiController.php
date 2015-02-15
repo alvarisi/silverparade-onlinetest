@@ -43,14 +43,17 @@ class SesiController extends BaseController {
 			$sesi = Sesi::with(
 					'usersesi',
 					'usersesi.logsesi',
-					'usersesi.logsesi.answers',
+					'usersesi.logsesi.answers'
 					)->find($id);
 			
 			foreach ($sesi->usersesi as $v) {
-				foreach ($v->logsesi->answers as $vv) {
-					$vv->delete();
+				if($v->logsesi()->count())
+				{
+					foreach ($v->logsesi->answers as $vv) {
+						$vv->delete();
+					}
+					$v->logsesi->delete();
 				}
-				$v->logsesi->delete();
 				$v->delete();
 			}
 			$sesi->delete();
@@ -80,5 +83,11 @@ class SesiController extends BaseController {
 		$content->save();
 		Session::flash('success','Data berhasil diperbarui');
 		return Redirect::back();
+	}
+	public function getSesi()
+	{
+		$x = Input::get('x');
+		$category = Sesi::with('categories')->find($x);
+		return Response::json($category);
 	}
 }

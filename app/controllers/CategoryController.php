@@ -33,11 +33,7 @@ class CategoryController extends BaseController {
 		return Redirect::back();
 	}
 
-	public function destroy()
-	{
-		
-		return Redirect::back();	
-	}
+	
 	public function edit($id)
 	{
 		$competition = Competition::all();
@@ -69,7 +65,7 @@ class CategoryController extends BaseController {
 					'questions.answers',
 					'sesi',
 					'sesi.usersesi',
-					'sesi.usersesi.logsesi',
+					'sesi.usersesi.logsesi'
 					)->find($id);
 			
 			foreach ($category->questions as $val) {
@@ -93,5 +89,11 @@ class CategoryController extends BaseController {
 			Session::flash('success','Data berhasil dihapus');
 			return Redirect::back();
 		}
+	}
+	public function getDescription()
+	{
+		$x = Input::get('x');
+		$category = Category::find($x);
+		return Response::json($category);
 	}
 }

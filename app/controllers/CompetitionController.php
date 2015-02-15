@@ -54,7 +54,7 @@ class CompetitionController extends BaseController {
 					'categories.questions.answers',
 					'categories.sesi',
 					'categories.sesi.usersesi',
-					'categories.sesi.usersesi.logsesi',
+					'categories.sesi.usersesi.logsesi'
 					)->find($id);
 			foreach ($competition->categories as $row) {
 				foreach ($row->questions as $val) {
@@ -75,6 +75,7 @@ class CompetitionController extends BaseController {
 				}
 				$row->delete();
 			}
+			$competition->delete();
 
 			Session::flash('success','Data berhasil dihapus');
 			return Redirect::back();
