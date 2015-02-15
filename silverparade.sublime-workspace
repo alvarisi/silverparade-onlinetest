@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"Re",
+				"Request"
+			],
+			[
+				"em",
+				"empty"
+			],
+			[
+				"user",
+				"username"
+			],
+			[
 				"temp",
 				"template"
 			],
@@ -26,10 +38,6 @@
 			[
 				"ms_",
 				"ms_users_id"
-			],
-			[
-				"user",
-				"usersesi"
 			],
 			[
 				"ques",
@@ -506,64 +514,19 @@
 			[
 				"wa",
 				"waktuberita"
-			],
-			[
-				"uc",
-				"ucwords"
-			],
-			[
-				"mysql_re",
-				"mysql_real_escape_string"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "app/views/page/officer/userupload.blade.php",
+			"contents": "<?php\n\nclass QuestionController extends BaseController {\n\n	public function index()\n	{\n		$content = Question::orderBy('id','desc')->with('categories')->get();\n		return View::make('page.officer.question')\n			->with('title','Daftar Pertanyaan')\n			->with('content',$content);\n	}\n	public function create()\n	{\n		$category = Category::all();\n		return View::make('page.officer.questionform')\n			->with('content',null)\n			->with('category',$category)\n			->with('title','Tambah Pertanyaan')\n		;\n	}\n\n	public function store()\n	{\n		$name = Input::get('name');\n		$category = Input::get('ms_categories_id');\n		$file = '';\n		if(Input::hasFile('file'))\n		{\n			$extension=Input::file('file')->getClientOriginalExtension();\n			$file=$this->randomToken(10).'.'.$extension;\n			$ada=true;\n			while($ada){\n				$adakah=Question::where('file','=',$file)->count();\n				if($adakah > 0)\n				{\n					$file=$this->randomToken(11).'.'.$extension;\n				}else{\n					$ada=false;\n				}\n			}\n			\n			Input::file('file')->move('upload/question/', $file);\n			$path = public_path('upload/question/' . $file);\n			$img2= Image::make($path);\n			$img2->save('upload/question/'.$file,70);\n		}\n		$q = Question::create([\n			'name' => $name,\n			'file' => $file,\n			'ms_categories_id' => $category,\n			'theAnswer' => Input::get('answer')\n		]);\n		for($i=1;$i<=5;$i++)\n		{\n			Choice::create([\n				'flag' => $i,\n				'name' => Input::get('answer'.$i),\n				'ms_questions_id' => $q->id\n			]);\n		}\n		Session::flash('success','Data berhasil ditambahkan');\n		return Redirect::back();\n	}\n\n	public function info($id=null)\n	{\n		if(empty($id))\n			return Redirect::back();\n		$content = Question::with('choices','categories')->find($id);\n		return View::make('page.officer.questioninfo')\n		->with('title','Detail Pertanyaan')\n		->with('content',$content)\n		;\n	}\n\n	public function edit($id)\n	{\n		$category = Category::all();\n		$content = Question::find($id);\n		return View::make('page.officer.questionform')\n			->with('content',$content)\n			->with('category',$category)\n			->with('title','Tambah Pertanyaan')\n		;\n	}\n\n	public function update($id)\n	{\n		$category = Category::all();\n		$content = Question::find($id);\n		$content->name = Input::get('name');\n		$content->ms_categories_id = Input::get('ms_categories_id');\n		$file = '';\n		if(Input::hasFile('file'))\n		{\n			if(File::exists('upload/question/'.$content->file))\n			File::delete('upload/question/'.$content->file);\n			$extension=Input::file('file')->getClientOriginalExtension();\n			$file=$this->randomToken(10).'.'.$extension;\n			$ada=true;\n			while($ada){\n				$adakah=Question::where('file','=',$file)->count();\n				if($adakah > 0)\n				{\n					$file=$this->randomToken(11).'.'.$extension;\n				}else{\n					$ada=false;\n				}\n			}\n			\n			Input::file('file')->move('upload/question/', $file);\n			$path = public_path('upload/question/' . $file);\n			$img2= Image::make($path);\n			$img2->save('upload/question/'.$file,70);\n			$content->file = $file;\n		}\n		$content->theAnswer = Input::get('answer');\n		$content->save();\n\n		for($i=1;$i<=5;$i++)\n		{\n			$c = Choice::where('ms_questions_id',$content->id)->where('flag',$i)->first();\n			$c->name = Input::get('answer'.$i);\n			$c->save();\n		}\n		Session::flash('success','Data berhasil diperbarui');\n		return Redirect::back();\n	}\n\n	public function destroy($id=null)\n	{\n		if(!empty($id))\n		{\n			$question = Question::with(\n					'choices',\n					'answers'\n					)->find($id);\n			\n			foreach ($question->choices as $v) {\n				$v->delete();\n			}\n			foreach ($question->answers as $v) {\n				$v->delete();\n			}\n			\n			$question->delete();\n\n			Session::flash('success','Data berhasil dihapus');\n			return Redirect::back();\n		}\n	}\n}\n",
+			"file": "app/controllers/QuestionController.php",
+			"file_size": 3644,
+			"file_write_time": 130683286474079084,
 			"settings":
 			{
-				"buffer_size": 1778,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/views/include/officer/sidenav.blade.php",
-			"settings":
-			{
-				"buffer_size": 1795,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/routes.php",
-			"settings":
-			{
-				"buffer_size": 4718,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/controllers/TestController.php",
-			"settings":
-			{
-				"buffer_size": 6081,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/controllers/UserController.php",
-			"settings":
-			{
-				"buffer_size": 4483,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/controllers/BaseController.php",
-			"settings":
-			{
-				"buffer_size": 606,
+				"buffer_size": 3648,
 				"line_ending": "Unix"
 			}
 		}
@@ -601,26 +564,37 @@
 	[
 		"/C/xampp/htdocs/silverparade",
 		"/C/xampp/htdocs/silverparade/app",
+		"/C/xampp/htdocs/silverparade/app/controllers",
+		"/C/xampp/htdocs/silverparade/app/database/migrations",
+		"/C/xampp/htdocs/silverparade/app/database/seeds",
+		"/C/xampp/htdocs/silverparade/app/Helpers",
 		"/C/xampp/htdocs/silverparade/app/views",
-		"/C/xampp/htdocs/silverparade/app/views/include",
 		"/C/xampp/htdocs/silverparade/app/views/include/officer",
-		"/C/xampp/htdocs/silverparade/app/views/page/officer",
-		"/C/xampp/htdocs/silverparade/app/views/page/user",
-		"/C/xampp/htdocs/silverparade/public/upload",
-		"/C/xampp/htdocs/silverparade/public/upload/question"
+		"/C/xampp/htdocs/silverparade/app/views/page",
+		"/C/xampp/htdocs/silverparade/app/views/page/officer"
 	],
 	"file_history":
 	[
-		"/C/xampp/htdocs/silverparade/app/views/page/officer/userlist.blade.php",
-		"/C/xampp/htdocs/silverparade/composer.json",
-		"/C/xampp/htdocs/silverparade/app/models/Logsesi.php",
+		"/C/xampp/htdocs/silverparade/app/config/app.php",
+		"/C/xampp/htdocs/silverparade/app/controllers/UserController.php",
+		"/C/xampp/htdocs/silverparade/app/routes.php",
+		"/C/xampp/htdocs/silverparade/app/views/include/officer/sidenav.blade.php",
+		"/C/xampp/htdocs/silverparade/app/views/page/officer/userform.blade.php",
+		"/C/xampp/htdocs/silverparade/app/views/page/officer/userupload.blade.php",
+		"/C/xampp/htdocs/silverparade/app/controllers/SesiController.php",
+		"/C/xampp/htdocs/silverparade/app/controllers/BaseController.php",
+		"/C/xampp/htdocs/silverparade/app/controllers/TemplateController.php",
+		"/C/xampp/htdocs/silverparade/app/Helpers/ExcelHelper.php",
+		"/C/xampp/htdocs/silverparade/vendor/laravel/framework/src/Illuminate/Routing/RoutingServiceProvider.php",
 		"/C/xampp/htdocs/silverparade/app/controllers/TestController.php",
+		"/C/xampp/htdocs/silverparade/app/Helpers/ExcelCreate.php",
+		"/C/xampp/htdocs/silverparade/composer.json",
+		"/C/xampp/htdocs/silverparade/app/views/page/officer/userlist.blade.php",
+		"/C/xampp/htdocs/silverparade/app/models/Logsesi.php",
 		"/C/xampp/htdocs/silverparade/app/views/page/user/testlist.blade.php",
 		"/C/xampp/htdocs/silverparade/app/views/page/officer/result.blade.php",
 		"/C/xampp/htdocs/silverparade/app/views/page/officer/competitionform.blade.php",
 		"/C/xampp/htdocs/silverparade/app/views/page/officer/participant.blade.php",
-		"/C/xampp/htdocs/silverparade/app/routes.php",
-		"/C/xampp/htdocs/silverparade/app/controllers/SesiController.php",
 		"/C/xampp/htdocs/silverparade/app/controllers/CategoryController.php",
 		"/C/xampp/htdocs/silverparade/app/views/page/officer/questionform.blade.php",
 		"/C/xampp/htdocs/silverparade/app/views/page/officer/categoryform.blade.php",
@@ -633,7 +607,6 @@
 		"/C/xampp/htdocs/silverparade/app/views/page/officer/sesi.blade.php",
 		"/C/xampp/htdocs/silverparade/app/views/layouts/home.blade.php",
 		"/C/xampp/htdocs/silverparade/app/views/include/home-header.blade.php",
-		"/C/xampp/htdocs/silverparade/app/views/include/officer/sidenav.blade.php",
 		"/C/xampp/htdocs/hasanahmulia/config/database.php",
 		"/C/xampp/htdocs/silverparade/app/models/Sesi.php",
 		"/C/xampp/htdocs/silverparade/public/assets/css/style.css",
@@ -643,12 +616,10 @@
 		"/C/xampp/htdocs/silverparade/app/views/page/user/index.blade.php",
 		"/C/xampp/htdocs/silverparade/app/views/page/officer/competition.blade.php",
 		"/C/xampp/htdocs/silverparade/app/controllers/HomeController.php",
-		"/C/xampp/htdocs/silverparade/app/controllers/UserController.php",
 		"/C/xampp/htdocs/silverparade/app/views/page/user/testexecute.blade.php",
 		"/C/xampp/htdocs/silverparade/app/views/page/user/change.blade.php",
 		"/C/xampp/htdocs/silverparade/app/views/page/officer/change.blade.php",
 		"/C/xampp/htdocs/silverparade/app/views/page/officer/selfuserform.blade.php",
-		"/C/xampp/htdocs/silverparade/vendor/laravel/framework/src/Illuminate/Routing/RoutingServiceProvider.php",
 		"/C/xampp/htdocs/silverparade/app/views/page/user/testlanding.blade.php",
 		"/C/xampp/htdocs/silverparade/app/views/page/login.blade.php",
 		"/C/xampp/htdocs/silverparade/app/views/include/officer/headnav.blade.php",
@@ -667,9 +638,6 @@
 		"/C/xampp/htdocs/silverparade/app/database/migrations/2015_01_11_065236_create_table_master.php",
 		"/C/xampp/htdocs/silverparade/public/assets/js/datetimepicker/jquery.js",
 		"/C/xampp/htdocs/silverparade/vendor/symfony/http-kernel/Symfony/Component/HttpKernel/Event/FilterControllerEvent.php",
-		"/C/xampp/htdocs/silverparade/app/views/page/officer/userform.blade.php",
-		"/C/xampp/htdocs/silverparade/app/config/app.php",
-		"/C/xampp/htdocs/silverparade/app/controllers/BaseController.php",
 		"/C/xampp/htdocs/silverparade/app/views/page/officer/questioninfo.blade.php",
 		"/C/xampp/htdocs/silverparade/app/models/Choice.php",
 		"/C/xampp/htdocs/silverparade/app/models/Question.php",
@@ -734,11 +702,7 @@
 		"/C/wamp/www/pdt-its/app/views/scripts/progress-bar.blade.php",
 		"/C/wamp/www/pdt-its/app/views/pages/impor/mahasiswa/master.blade.php",
 		"/Z/wampz/www/itspeg/xlita_jurnal.php",
-		"/Z/wampz/www/itspeg/inc_function.php",
-		"/Z/wampz/www/itspeg/fungsiekspordataTATSDS varis.php",
-		"/Z/wampz/www/itspeg/xlita_tatsds.php",
-		"/Z/wampz/www/itspeg/inc_dbconnakad.php",
-		"/C/wamp/www/pdt-its/vendor/twig/twig/test/Twig/Tests/Fixtures/functions/include/ignore_missing.test"
+		"/Z/wampz/www/itspeg/inc_function.php"
 	],
 	"find":
 	{
@@ -749,6 +713,7 @@
 		"height": 90.0,
 		"where_history":
 		[
+			"C:\\xampp\\htdocs\\silverparade",
 			"C:\\xampp\\htdocs\\laravel\\app\\models,C:\\wamp\\www\\pdt-its",
 			"C:\\xampp\\htdocs\\laravel\\app\\models",
 			"C:\\xampp\\htdocs\\yatimpiatu",
@@ -761,6 +726,12 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"foundation()",
+			"->logsesi->answers",
+			"->logsesi",
+			"if(Session::has('success') || Session::has('failed'))",
+			"'failed'",
+			"failed",
 			"dd(",
 			"date(",
 			"testlist",
@@ -882,13 +853,7 @@
 			"getDonaturById",
 			"mobile",
 			"mobiel",
-			"lower-header",
-			"@",
-			"lower-header",
-			"@media",
-			"media",
-			"enableMobileNav",
-			"#menu-button"
+			"lower-header"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1004,200 +969,24 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "app/views/page/officer/userupload.blade.php",
+					"file": "app/controllers/QuestionController.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1778,
+						"buffer_size": 3648,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1672,
-								1672
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content"
-							],
-							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 474.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "app/views/include/officer/sidenav.blade.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1795,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1166,
-								1166
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content"
-							],
-							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app/routes.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4718,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2560,
-								2574
+								3531,
+								3531
 							]
 						],
 						"settings":
@@ -1265,271 +1054,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 403.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "app/controllers/TestController.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6081,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								6079,
-								6079
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content"
-							],
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 2073.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "app/controllers/UserController.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4483,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								36,
-								50
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content"
-							],
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "app/controllers/BaseController.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 606,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								600,
-								600
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content"
-							],
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1482.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -1584,6 +1109,30 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"usercontroller",
+				"app\\controllers\\UserController.php"
+			],
+			[
+				"route",
+				"app\\routes.php"
+			],
+			[
+				"rous",
+				"vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RoutingServiceProvider.php"
+			],
+			[
+				"excelhelper",
+				"app\\Helpers\\ExcelHelper.php"
+			],
+			[
+				"excelcreate",
+				"app\\Helpers\\ExcelCreate.php"
+			],
+			[
+				"templatecontroller",
+				"app\\controllers\\TemplateController.php"
+			],
 			[
 				"basecontroller",
 				"app\\controllers\\BaseController.php"
@@ -1645,16 +1194,8 @@
 				"app\\controllers\\HomeController.php"
 			],
 			[
-				"usercontroller",
-				"app\\controllers\\UserController.php"
-			],
-			[
 				"routes",
 				"app\\routes.php"
-			],
-			[
-				"rous",
-				"vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RoutingServiceProvider.php"
 			],
 			[
 				"styl",
@@ -1679,10 +1220,6 @@
 			[
 				"sesi",
 				"app\\models\\Sesi.php"
-			],
-			[
-				"route",
-				"app\\routes.php"
 			],
 			[
 				"questionform",
@@ -1847,10 +1384,6 @@
 			[
 				"seleksimahasiswa",
 				"app\\models\\SeleksiMahasiswa.php"
-			],
-			[
-				"excelhelper",
-				"app\\Helpers\\ExcelHelper.php"
 			],
 			[
 				"admin",
@@ -2087,14 +1620,6 @@
 			[
 				"beri",
 				"application\\views\\homepage\\berita.php"
-			],
-			[
-				"main",
-				"application\\controllers\\main.php"
-			],
-			[
-				"cara",
-				"application\\views\\homepage\\cara-menyumbang.php"
 			]
 		],
 		"width": 0.0
@@ -2106,7 +1631,7 @@
 		[
 			[
 				"",
-				"C:\\xampp\\htdocs\\edm\\edm.sublime-project"
+				"C:\\xampp\\htdocs\\sampanits\\sampanits.sublime-project"
 			],
 			[
 				"edm",

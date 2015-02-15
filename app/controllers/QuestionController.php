@@ -142,6 +142,9 @@ class QuestionController extends BaseController {
 			foreach ($question->answers as $v) {
 				$v->delete();
 			}
+			if(File::exists('upload/question/'.$question->file))
+			File::delete('upload/question/'.$question->file);
+			
 			$question->delete();
 
 			Session::flash('success','Data berhasil dihapus');

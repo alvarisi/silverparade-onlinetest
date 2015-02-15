@@ -75,6 +75,8 @@ class CategoryController extends BaseController {
 				foreach ($val->answers as $v) {
 					$v->delete();
 				}
+				if(File::exists('upload/question/'.$val->file))
+				File::delete('upload/question/'.$val->file);
 				$val->delete();
 			}
 			foreach ($category->sesi as $val) {
